@@ -1,37 +1,51 @@
+import static java.lang.Double.NaN;
+
 public class HelloWorld {
     /**
      * Main methods which is executed by JVM and prints the message.
-     *
-     * @param arg command line arguments
      */
-    public static void main(String[] arg) {
-        String s = " 0.5 / 2";
-        String[] args = s.split(" ");
-        double a = Double.parseDouble(args[0]);
-        double b = Double.parseDouble(args[2]);
-        String z = args[1];
-        /*if (args.length > 3)
-        {
-            throw;
+    public static void main(String[] args) {
+
+        if (args.length == 0) {
+            System.out.println("Отсутствуют агрументы");
+            return;
         }
-        else
-            {
+        if (args.length < 3) {
+            System.out.println("Меньше 3 аргументов");
+            return;
+        }
+        if (args.length > 3) {
+            System.out.println("Больше 3 аргументов");
+            return;
+        }
 
-            }*/
-
+        try {
+            double a = Double.parseDouble(args[0]);
+            double b = Double.parseDouble(args[2]);
+            char operation = args[1].charAt(0);
+            double result = calc(a, operation, b);
+            if (operation == '/' && -1e-12 < b && b < 1e-12) {
+                System.out.println("Делить на ноль нельзя");
+                return;
+            }
+            System.out.println("Результат : " + result);
+        } catch (NumberFormatException exception) {
+            System.out.println("Введите цифры!");
+        }
     }
 
-    public static double calc(double a, String z, double b) {
-        switch (z){
-            case "+":
+    public static double calc(double a, char z, double b) {
+        switch (z) {
+            case '+':
                 return a + b;
-            case "-":
+            case '-':
                 return a - b;
-            case "/":
+            case '/':
                 return a / b;
-            case "*":
+            case '*':
                 return a * b;
         }
-        return 0;
+        return NaN;
     }
 }
+
