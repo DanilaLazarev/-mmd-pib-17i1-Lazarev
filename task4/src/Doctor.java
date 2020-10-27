@@ -8,6 +8,7 @@ public class Doctor implements Human {
         this.specialization = specialization;
     }
 
+    @Override
     public String getFIO() {
         return name;
     }
