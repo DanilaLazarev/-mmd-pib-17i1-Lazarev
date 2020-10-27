@@ -19,7 +19,7 @@ public class Program {
                 case "2":
                     System.out.println("Список врачей:");
                     for (Doctor doctor : clinic.getDoctors()) {
-                        System.out.println(doctor.getFIO() + " - " + doctor.getSpecialization().getName());
+                        System.out.println(doctor);
                     }
                     break;
                 case "3":

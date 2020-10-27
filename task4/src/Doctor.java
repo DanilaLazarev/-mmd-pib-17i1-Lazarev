@@ -1,7 +1,7 @@
 public class Doctor implements Human {
 
-    private String name;
-    private Specialization specialization;
+    private final String name;
+    private final Specialization specialization;
 
     public Doctor(String name, Specialization specialization) {
         this.name = name;
@@ -16,9 +16,8 @@ public class Doctor implements Human {
         return specialization;
     }
 
-
-    public Doctor Create(String name, Specialization specialization) {
-
-        return new Doctor(name, specialization);
+    @Override
+    public String toString() {
+        return getFIO() + " - " + specialization;
     }
 }
