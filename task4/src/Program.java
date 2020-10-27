@@ -14,7 +14,14 @@ public class Program {
             userInput = in.nextLine();
             switch (userInput) {
                 case "1":
-                    System.out.println(clinic.getPatients());
+                    System.out.println("Введите имя нового пациента");
+                    String patientName = in.nextLine();
+                    PatientCard newPatientCard = new PatientCard(patientName);
+                    clinic.addPatient(newPatientCard);
+                    System.out.println("Список пациентов:");
+                    for (PatientCard patientCard : clinic.getPatients()) {
+                        System.out.println(patientCard);
+                    }
                     break;
                 case "2":
                     System.out.println("Список врачей:");

@@ -23,4 +23,8 @@ public class Clinic {
     public List<Doctor> getDoctors() {
         return doctors;
     }
+
+    public void addPatient(PatientCard patientCard) {
+        patients.add(patientCard);
+    }
 }
