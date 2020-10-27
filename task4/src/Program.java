@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Program {
@@ -23,7 +24,8 @@ public class Program {
                     printDoctors(clinic);
                     break;
                 case "3":
-                    System.out.println(clinic.getVisits());
+                    createVisit(clinic);
+                    printVisit(clinic);
                     break;
                 case "4":
                     System.out.println("Спасибо за работу!");
@@ -37,8 +39,9 @@ public class Program {
 
     private static void printPatients(Clinic clinic) {
         System.out.println("Список пациентов:");
-        for (PatientCard patientCard : clinic.getPatients()) {
-            System.out.println(patientCard);
+        for(int i = 0;i<clinic.getPatients().size();++i ){
+            PatientCard patientCard = clinic.getPatients().get(i);
+            System.out.println(i+". "+patientCard);
         }
     }
 
@@ -51,8 +54,31 @@ public class Program {
 
     private static void printDoctors(Clinic clinic){
         System.out.println("Список врачей:");
-        for (Doctor doctor : clinic.getDoctors()) {
-            System.out.println(doctor);
+        for (int i = 0;i<clinic.getDoctors().size();++i){
+            Doctor doctor = clinic.getDoctors().get(i);
+            System.out.println(i+". "+doctor);
+        }
+    }
+
+    private static void createVisit(Clinic clinic){
+        System.out.println("Выберите врача:");
+        printDoctors(clinic);
+        String doctorIndexAsString = IN.nextLine();
+        int doctorIndex = Integer.parseInt(doctorIndexAsString);
+        System.out.println("Выберите пациента:");
+        printPatients(clinic);
+        String patientIndexAsString = IN.nextLine();
+        int patientIndex = Integer.parseInt(patientIndexAsString);
+        Doctor doctor = clinic.getDoctors().get(doctorIndex);
+        PatientCard patient = clinic.getPatients().get(patientIndex);
+        Visit visit = new Visit(patient,doctor, LocalDate.now());
+        clinic.addVisit(visit);
+    }
+
+    private static void printVisit(Clinic clinic){
+        System.out.println("Список посещений:");
+        for (Visit visit : clinic.getVisits()) {
+            System.out.println(visit);
         }
     }
 }

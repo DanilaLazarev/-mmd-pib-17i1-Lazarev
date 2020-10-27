@@ -27,4 +27,8 @@ public class Clinic {
     public void addPatient(PatientCard patientCard) {
         patients.add(patientCard);
     }
+
+    public void addVisit(Visit visit){
+        visits.add(visit);
+    }
 }
