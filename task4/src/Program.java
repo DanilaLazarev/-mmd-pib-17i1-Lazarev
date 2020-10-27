@@ -1,34 +1,36 @@
 import java.util.Scanner;
+
 public class Program {
-    public static void main (String args[]) {
+    public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        int d = 0;
-        while (d == 0) {
+        String userInput;
+        do {
             System.out.println("Выберите дальнейшее действие:" +
                     "\n1.Работа с карточками." +
                     "\n2.Работа с врачами" +
                     "\n3.Работа с посищениями" +
                     "\n4.Выход");
-            int z = in.nextInt();
-            switch (z) {
-                case 1:
+            userInput = in.nextLine();
+            switch (userInput) {
+                case "1":
                     //PatientCard.Show();
-
-                case 2:
+                    break;
+                case "2":
                     System.out.println("");
-                case 3:
-                    System.out.println("");
-                case 4:
-                    d++;
+                    break;
+                case "3":
+                    System.out.println("!");
+                    break;
+                case "4":
+                    System.out.println("Спасибо за работу!");
+                    break;
                 default:
                     System.out.println("Выберите из предложенных вариантов!");
+                    break;
             }
             in.close();
-        }
+        } while (!"4".equals(userInput));
     }
-
-    /*public void ShowMain(){
-        !!!Возможное решение
-    }*/
 }
+
