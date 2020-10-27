@@ -3,15 +3,16 @@ import java.util.List;
 
 public class Clinic {
 
-    private final List<Visits> visits = new ArrayList<>();
+    private final List<Visit> visits = new ArrayList<>();
     private final List<PatientCard> patients = new ArrayList<>();
     private final List<Doctor> doctors = new ArrayList<>();
 
     public Clinic() {
-
+        this.doctors.add(new Doctor("Владимир", Specialization.ТЕРАПЕВТ));
+        this.doctors.add(new Doctor("Дмитрий", Specialization.ЛОР));
     }
 
-    public List<Visits> getVisits() {
+    public List<Visit> getVisits() {
         return visits;
     }
 

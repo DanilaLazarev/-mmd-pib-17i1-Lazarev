@@ -1,16 +1,12 @@
 import java.util.Scanner;
 public class Doctor implements Human{
-    /*
-    ФИО - хуман
-    Специализация - список
-     */
+
     private String name;
     Specialization specialization;
 
     public Doctor(String name, Specialization specialization) {
 
     }
-
 
     public String getFIO()
     {

@@ -1,4 +1,4 @@
-public class Visits {
+public class Visit {
     /*Врач
     Пациент
    Дата

@@ -4,7 +4,7 @@ public class PatientCard implements Human {
     ФИО - хуман
     Посещение - посещние[]
      */
-    public PatientCard(String name, Visits[] visits){
+    public PatientCard(String name, Visit[] visits){
         this.name = name;
         this.visits = visits;
     }
@@ -12,7 +12,7 @@ public class PatientCard implements Human {
     Scanner in = new Scanner(System.in);
 
     private String name;
-    Visits[] visits;
+    Visit[] visits;
 
     public String getFIO()
     {
