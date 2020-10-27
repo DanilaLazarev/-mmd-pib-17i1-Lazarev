@@ -8,8 +8,8 @@ public class Clinic {
     private final List<Doctor> doctors = new ArrayList<>();
 
     public Clinic() {
-        this.doctors.add(new Doctor("Владимир", Specialization.ТЕРАПЕВТ));
-        this.doctors.add(new Doctor("Дмитрий", Specialization.ЛОР));
+        this.doctors.add(new Doctor("Владимир", Specialization.THERAPIST));
+        this.doctors.add(new Doctor("Дмитрий", Specialization.THROAT));
     }
 
     public List<Visit> getVisits() {
