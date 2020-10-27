@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-
+        Clinic clinic = new Clinic();
         Scanner in = new Scanner(System.in);
         String userInput;
         do {
@@ -14,13 +14,13 @@ public class Program {
             userInput = in.nextLine();
             switch (userInput) {
                 case "1":
-                    //PatientCard.Show();
+                    System.out.println(clinic.getPatients());
                     break;
                 case "2":
-                    System.out.println("");
+                    System.out.println(clinic.getDoctors());
                     break;
                 case "3":
-                    System.out.println("!");
+                    System.out.println(clinic.getVisits());
                     break;
                 case "4":
                     System.out.println("Спасибо за работу!");
@@ -29,7 +29,6 @@ public class Program {
                     System.out.println("Выберите из предложенных вариантов!");
                     break;
             }
-            in.close();
         } while (!"4".equals(userInput));
     }
 }

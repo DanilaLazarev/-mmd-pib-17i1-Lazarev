@@ -1,15 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Clinic {
-    /*
-    Посещения[]
-    +назначитПосещ
-     */
 
-    /*Visits visits[] = new Visits[];
+    private final List<Visits> visits = new ArrayList<>();
+    private final List<PatientCard> patients = new ArrayList<>();
+    private final List<Doctor> doctors = new ArrayList<>();
 
-    PatientCard patientCard = new PatientCard();
-    Doctor doc = new Doctor();
-    public void setVisit()
-    {
-        patientCard.
-    }*/
+    public Clinic() {
+
+    }
+
+    public List<Visits> getVisits() {
+        return visits;
+    }
+
+    public List<PatientCard> getPatients() {
+        return patients;
+    }
+
+    public List<Doctor> getDoctors() {
+        return doctors;
+    }
 }
