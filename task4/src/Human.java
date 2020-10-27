@@ -1,7 +1,8 @@
 public interface Human {
-    /*
-    гет ФИО
+    /**
+     * возвращает ФИО
+     *
+     * @return ФИО строчкой
      */
-
     String getFIO();
 }

@@ -17,7 +17,10 @@ public class Program {
                     System.out.println(clinic.getPatients());
                     break;
                 case "2":
-                    System.out.println(clinic.getDoctors());
+                    System.out.println("Список врачей:");
+                    for (Doctor doctor : clinic.getDoctors()) {
+                        System.out.println(doctor.getFIO() + " " + doctor.getSpecialization());
+                    }
                     break;
                 case "3":
                     System.out.println(clinic.getVisits());
