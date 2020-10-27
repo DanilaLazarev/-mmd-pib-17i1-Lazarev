@@ -1,24 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Visit {
-    /*Врач
-    Пациент
-   Дата
-   Диагноз
-   Состоялось
-     */
 
-    //privat PatientCard _Patient = new PatientCard;
+    private final List<PatientCard> patients = new ArrayList<>();
+    private final List<Doctor> doctors = new ArrayList<>();
 
-    //public Visits VisitCreate ()
-   //{
-        //return Visits();
-   // }
-
-
-
-    //Doctor doc = new Doctor();
-    //PatientCard patientCard = new PatientCard();
-
-
-    //String Diagnose;
-    //boolean Succeed;
 }

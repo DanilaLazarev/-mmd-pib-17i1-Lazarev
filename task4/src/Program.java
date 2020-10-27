@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
 public class Program {
+
+    private static final Scanner IN = new Scanner(System.in);
+
     public static void main(String[] args) {
         Clinic clinic = new Clinic();
-        Scanner in = new Scanner(System.in);
         String userInput;
         do {
             System.out.println("Выберите дальнейшее действие:" +
@@ -11,23 +13,14 @@ public class Program {
                     "\n2.Работа с врачами" +
                     "\n3.Работа с посищениями" +
                     "\n4.Выход");
-            userInput = in.nextLine();
+            userInput = IN.nextLine();
             switch (userInput) {
                 case "1":
-                    System.out.println("Введите имя нового пациента");
-                    String patientName = in.nextLine();
-                    PatientCard newPatientCard = new PatientCard(patientName);
-                    clinic.addPatient(newPatientCard);
-                    System.out.println("Список пациентов:");
-                    for (PatientCard patientCard : clinic.getPatients()) {
-                        System.out.println(patientCard);
-                    }
+                    createPatient(clinic);
+                    printPatients(clinic);
                     break;
                 case "2":
-                    System.out.println("Список врачей:");
-                    for (Doctor doctor : clinic.getDoctors()) {
-                        System.out.println(doctor);
-                    }
+                    printDoctors(clinic);
                     break;
                 case "3":
                     System.out.println(clinic.getVisits());
@@ -40,6 +33,27 @@ public class Program {
                     break;
             }
         } while (!"4".equals(userInput));
+    }
+
+    private static void printPatients(Clinic clinic) {
+        System.out.println("Список пациентов:");
+        for (PatientCard patientCard : clinic.getPatients()) {
+            System.out.println(patientCard);
+        }
+    }
+
+    private static void createPatient(Clinic clinic) {
+        System.out.println("Введите имя нового пациента");
+        String patientName = IN.nextLine();
+        PatientCard newPatientCard = new PatientCard(patientName);
+        clinic.addPatient(newPatientCard);
+    }
+
+    private static void printDoctors(Clinic clinic){
+        System.out.println("Список врачей:");
+        for (Doctor doctor : clinic.getDoctors()) {
+            System.out.println(doctor);
+        }
     }
 }
 
