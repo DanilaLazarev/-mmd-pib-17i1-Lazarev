@@ -39,9 +39,9 @@ public class Program {
 
     private static void printPatients(Clinic clinic) {
         System.out.println("Список пациентов:");
-        for(int i = 0;i<clinic.getPatients().size();++i ){
+        for (int i = 0; i < clinic.getPatients().size(); ++i) {
             PatientCard patientCard = clinic.getPatients().get(i);
-            System.out.println(i+". "+patientCard);
+            System.out.println(i + ". " + patientCard);
         }
     }
 
@@ -52,15 +52,15 @@ public class Program {
         clinic.addPatient(newPatientCard);
     }
 
-    private static void printDoctors(Clinic clinic){
+    private static void printDoctors(Clinic clinic) {
         System.out.println("Список врачей:");
-        for (int i = 0;i<clinic.getDoctors().size();++i){
+        for (int i = 0; i < clinic.getDoctors().size(); ++i) {
             Doctor doctor = clinic.getDoctors().get(i);
-            System.out.println(i+". "+doctor);
+            System.out.println(i + ". " + doctor);
         }
     }
 
-    private static void createVisit(Clinic clinic){
+    private static void createVisit(Clinic clinic) {
         System.out.println("Выберите врача:");
         printDoctors(clinic);
         String doctorIndexAsString = IN.nextLine();
@@ -69,13 +69,20 @@ public class Program {
         printPatients(clinic);
         String patientIndexAsString = IN.nextLine();
         int patientIndex = Integer.parseInt(patientIndexAsString);
+        System.out.println("Введите дату посещения в формате гггг-мм-дд");
+        String dateAsString = IN.nextLine();
+        LocalDate date = LocalDate.parse(dateAsString);
         Doctor doctor = clinic.getDoctors().get(doctorIndex);
         PatientCard patient = clinic.getPatients().get(patientIndex);
-        Visit visit = new Visit(patient,doctor, LocalDate.now());
-        clinic.addVisit(visit);
+        Visit visit = new Visit(patient, doctor, date);
+        try {
+            clinic.addVisit(visit);
+        } catch (Exception e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
     }
 
-    private static void printVisit(Clinic clinic){
+    private static void printVisit(Clinic clinic) {
         System.out.println("Список посещений:");
         for (Visit visit : clinic.getVisits()) {
             System.out.println(visit);

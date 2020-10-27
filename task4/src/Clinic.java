@@ -28,7 +28,12 @@ public class Clinic {
         patients.add(patientCard);
     }
 
-    public void addVisit(Visit visit){
-        visits.add(visit);
+    public void addVisit(Visit newVisit) throws Exception {
+        for (Visit visit : visits) {
+            if (visit.getDoctor() == newVisit.getDoctor() && visit.getDate().equals(newVisit.getDate())) {
+                throw new Exception("Доктор занят");
+            }
+        }
+        visits.add(newVisit);
     }
 }
