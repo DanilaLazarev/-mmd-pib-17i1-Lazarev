@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Clinic {
+public class Clinic implements Serializable {
 
     private final List<Visit> visits = new ArrayList<>();
     private final List<PatientCard> patients = new ArrayList<>();
@@ -35,5 +36,9 @@ public class Clinic {
             }
         }
         visits.add(newVisit);
+    }
+
+    public void addDoc(Doctor newDoc){
+        doctors.add(newDoc);
     }
 }

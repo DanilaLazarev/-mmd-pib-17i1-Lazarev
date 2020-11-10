@@ -1,6 +1,6 @@
+import java.io.Serializable;
 
-
-public class PatientCard implements Human {
+public class PatientCard implements Human, Serializable {
 
     private final String name;
 

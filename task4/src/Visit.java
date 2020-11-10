@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Visit {
+public class Visit implements Serializable {
 
     private final PatientCard patient;
     private final Doctor doctor;

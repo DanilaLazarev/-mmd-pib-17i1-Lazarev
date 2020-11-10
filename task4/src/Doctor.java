@@ -1,4 +1,6 @@
-public class Doctor implements Human {
+import java.io.Serializable;
+
+public class Doctor implements Human, Serializable {
 
     private final String name;
     private final Specialization specialization;
